@@ -8,21 +8,62 @@ Converts surface meshes (`.obj`) into volumetric tetrahedral meshes (`.msh` Gmsh
 
 ## Table of Contents
 
-1. [What This Tool Does](#what-this-tool-does)
-2. [Pipeline Overview](#pipeline-overview)
-3. [Quick Start — Pre-built Binary](#quick-start--pre-built-binary)
-4. [Building from Source](#building-from-source)
-5. [How to Use](#how-to-use)
-6. [Understanding the Parameters](#understanding-the-parameters)
-7. [Output Files and Folder Structure](#output-files-and-folder-structure)
-8. [How FloatTetwild Is Integrated](#how-floattetwild-is-integrated)
-9. [glibc Compatibility Shim — glibc_compat.c](#glibc-compatibility-shim--glibc_compatc)
-10. [Environment Variable Override](#environment-variable-override)
-11. [Troubleshooting](#troubleshooting)
-12. [Source File Reference](#source-file-reference)
-13. [Dependency Reference](#dependency-reference)
-14. [Tested Models](#tested-models)
-15. [Licence Notes](#licence-notes)
+1. [Download](#download)
+2. [What This Tool Does](#what-this-tool-does)
+3. [Pipeline Overview](#pipeline-overview)
+4. [Quick Start — Pre-built Binary](#quick-start--pre-built-binary)
+5. [Building from Source](#building-from-source)
+6. [How to Use](#how-to-use)
+7. [Understanding the Parameters](#understanding-the-parameters)
+8. [Output Files and Folder Structure](#output-files-and-folder-structure)
+9. [How FloatTetwild Is Integrated](#how-floattetwild-is-integrated)
+10. [glibc Compatibility Shim — glibc_compat.c](#glibc-compatibility-shim--glibc_compatc)
+11. [Environment Variable Override](#environment-variable-override)
+12. [Troubleshooting](#troubleshooting)
+13. [Source File Reference](#source-file-reference)
+14. [Dependency Reference](#dependency-reference)
+15. [Tested Models](#tested-models)
+16. [Licence Notes](#licence-notes)
+
+---
+
+## Download
+
+Pre-built binaries for **Ubuntu 22.04 LTS (Jammy Jellyfish)** and any distro with **glibc 2.35+** are available on the [releases page](https://github.com/ctkImuUser009/obj2msh/releases/tag/v1.0.0).
+
+### What's in the release archive
+
+| File | Description |
+|---|---|
+| `obj2msh` | The main pipeline binary |
+| `FloatTetwild_bin` | Volumetric mesher (redistributed under MPL 2.0 — see [Licence Notes](#licence-notes)) |
+| `install_deps.sh` | One-step runtime dependency installer — **run this first** |
+| `THIRD_PARTY_LICENSES.md` | FloatTetwild attribution and licence |
+| `README.md` | This file |
+
+### Quick download and setup
+
+```bash
+# 1. Download the release archive
+wget https://github.com/ctkImuUser009/obj2msh/releases/download/v1.0.0/obj2msh.zip
+
+# 2. Extract
+unzip obj2msh.zip
+cd obj2msh
+
+# 3. Install runtime dependencies (requires sudo)
+chmod +x install_deps.sh
+./install_deps.sh
+
+# 4. Make the binary executable
+chmod +x obj2msh
+
+# 5. Run
+./obj2msh
+```
+
+
+If you prefer to build from source instead, see [Building from Source](#building-from-source).
 
 ---
 
